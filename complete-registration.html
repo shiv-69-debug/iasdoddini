@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Complete your registration – Doddini IAS, IPS, KAS Academy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f7f1e5;--surface:#fffdf8;--text:#23201b;--muted:#6a6358;--brand:#b4491f;--brand2:#7a2e12;--line:#e6dcc8;--ok:#1d7a4d;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI','Noto Sans Kannada','Nirmala UI',Roboto,sans-serif;line-height:1.6}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.top{background:#7a2e12;padding:10px 0}
+.topin{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.inst{font-weight:800;font-size:clamp(1rem,3vw,1.4rem);color:#fff3e0;text-align:center;line-height:1.3}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.lang button{border:0;background:transparent;padding:7px 13px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--muted)}
+.lang button.on{background:var(--brand);color:#fff}
+h1{font-size:clamp(1.5rem,5vw,2.1rem);color:var(--brand2);margin:28px 0 16px;line-height:1.25}
+.notice{background:#fdebd9;border-left:4px solid var(--brand);border-radius:8px;padding:12px 14px;margin:0 0 18px}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0 0 20px}
+label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 5px}
+label:first-child{margin-top:0}
+input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);font:inherit}
+input:focus{outline:2px solid var(--brand);border-color:transparent}
+.err{color:#c0392b;font-size:.85rem;min-height:1.1em;margin-top:3px}
+.fine{color:var(--muted);font-size:.85rem;margin:14px 0 0}
+.btn{display:block;width:100%;margin-top:16px;background:var(--brand);color:#fff;border:0;border-radius:10px;padding:13px 26px;font:inherit;font-weight:700;font-size:1rem;cursor:pointer}
+.btn:hover{background:var(--brand2)}
+.ok{display:none;text-align:center;padding:10px 0}
+.ok h2{color:var(--ok);font-size:1.4rem;margin:0 0 8px}
+.help{text-align:center;color:var(--muted);font-size:.95rem;margin:0 0 36px}
+.help a{color:var(--brand2);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="inst">🪔 <span data-i="inst"></span></div>
+  <div class="lang"><button id="l-en" type="button">English</button><button id="l-kn" type="button">ಕನ್ನಡ</button></div>
+</div></header>
+
+<div class="wrap">
+  <h1 data-i="h1"></h1>
+
+  <div class="form">
+    <form id="f" novalidate onsubmit="return false">
+      <label for="phone" data-i="lphone"></label>
+      <input id="phone" inputmode="numeric" maxlength="10" autocomplete="tel">
+      <div class="err" id="e-phone"></div>
+
+      <label for="percentage" data-i="lper"></label>
+      <input id="percentage" inputmode="decimal" maxlength="5" autocomplete="off">
+      <div class="err" id="e-percentage"></div>
+
+      <label for="caste" data-i="lcaste"></label>
+      <input id="caste" autocomplete="off">
+      <div class="err" id="e-caste"></div>
+
+      <button class="btn" id="go" type="button" data-i="submit"></button>
+    </form>
+    <div class="ok" id="ok"><h2 data-i="okh"></h2><p data-i="okm"></p></div>
+  </div>
+
+  <p class="help"><span data-i="help"></span> <a href="tel:+919665303720">9665303720</a> / <a href="tel:+919483222816">9483222816</a></p>
+</div>
+
+<script>
+(function(){
+  /* PASTE YOUR GOOGLE APPS SCRIPT WEB APP LINK BETWEEN THE QUOTES BELOW (same link as the main page) */
+  var SHEET_URL="";
+
+  var T={
+   en:{inst:"Doddini IAS, IPS, KAS Academy, Bengaluru",
+    h1:"Complete your registration",
+    lphone:"Mobile number you used when you registered",lper:"Graduation percentage (%)",lcaste:"Caste",
+    submit:"Submit details",okh:"✓ Details received",
+    okm:"Thank you! We will contact you on the mobile number you gave. Please keep your marksheets ready for verification.",
+    help:"Need help? Call",
+    ephone:"Enter a valid 10-digit mobile number",epercentage:"Enter a valid percentage between 1 and 100",ecaste:"Please enter your caste"},
+   kn:{inst:"ದೊಡ್ಡಿನಿ IAS, IPS, KAS ಅಕಾಡೆಮಿ ಬೆಂಗಳೂರು",
+    h1:"ನಿಮ್ಮ ನೋಂದಣಿಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ",
+    lphone:"ನೋಂದಣಿ ಮಾಡುವಾಗ ನೀಡಿದ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",lper:"ಪದವಿ ಶೇಕಡಾವಾರು (%)",lcaste:"ಜಾತಿ",
+    submit:"ವಿವರಗಳನ್ನು ಸಲ್ಲಿಸಿ",okh:"✓ ವಿವರಗಳು ಸ್ವೀಕರಿಸಲಾಗಿದೆ",
+    okm:"ಧನ್ಯವಾದಗಳು! ನೀವು ನೀಡಿದ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯಲ್ಲಿ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಲಾಗುವುದು. ದಯವಿಟ್ಟು ಪರಿಶೀಲನೆಗಾಗಿ ನಿಮ್ಮ ಅಂಕಪಟ್ಟಿಗಳನ್ನು ಸಿದ್ಧವಾಗಿಟ್ಟುಕೊಳ್ಳಿ.",
+    help:"ಸಹಾಯ ಬೇಕೇ? ಕರೆ ಮಾಡಿ:",
+    ephone:"ಸರಿಯಾದ 10 ಅಂಕಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",epercentage:"1 ರಿಂದ 100 ರ ನಡುವೆ ಸರಿಯಾದ ಶೇಕಡಾವಾರು ನಮೂದಿಸಿ",ecaste:"ದಯವಿಟ್ಟು ನಿಮ್ಮ ಜಾತಿ ನಮೂದಿಸಿ"}
+  };
+  var $=function(i){return document.getElementById(i)};
+  var lang="en";
+  try{var s=localStorage.getItem("doddini_lang");if(s==="kn"||s==="en")lang=s}catch(e){}
+  var rules={
+    phone:function(v){return /^[6-9]\d{9}$/.test(v.trim())},
+    percentage:function(v){var n=parseFloat(v);return /^\d{1,3}(\.\d{1,2})?$/.test(v.trim())&&n>0&&n<=100},
+    caste:function(v){return v.trim().length>=2}
+  };
+  function apply(){
+    var t=T[lang];
+    document.documentElement.lang=lang;
+    document.querySelectorAll("[data-i]").forEach(function(el){var v=t[el.getAttribute("data-i")];if(typeof v==="string")el.textContent=v});
+    $("l-en").className=lang==="en"?"on":"";$("l-kn").className=lang==="kn"?"on":"";
+    Object.keys(rules).forEach(function(k){if($("e-"+k).textContent)$("e-"+k).textContent=t["e"+k]});
+  }
+  function setLang(l){lang=l;try{localStorage.setItem("doddini_lang",l)}catch(e){}apply()}
+  $("l-en").addEventListener("click",function(){setLang("en")});
+  $("l-kn").addEventListener("click",function(){setLang("kn")});
+  $("go").addEventListener("click",function(){
+    var ok=true,data={action:"update"};
+    Object.keys(rules).forEach(function(k){
+      var v=$(k).value,good=rules[k](v);
+      $("e-"+k).textContent=good?"":T[lang]["e"+k];
+      if(!good)ok=false;data[k]=v.trim();
+    });
+    if(!ok)return;
+    try{if(SHEET_URL){fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})}}catch(e){}
+    $("f").style.display="none";$("ok").style.display="block";
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
